@@ -1,0 +1,6 @@
+<h2>Choose Your Favorite Arrangement</h2>
+<ul>
+<% @arrangements.each do |f| %>
+  <li><%= link_to f.title, arrangement_path(f) %> - $<%= f.price %></li>
+<%end %>
+</ul>

@@ -30,6 +30,7 @@ class ArrangementsController < ApplicationController
             redirect_to arrangement_path(@arrangement)
         else
             render :edit
+        end
     end
 
     def destroy
