@@ -33,4 +33,10 @@ class UsersController < ApplicationController
         User.find(params[:id]).destroy
         redirect_to users_path
     end
+
+    private 
+
+    def user_params
+        params.require(:user).permit(:name, :email, :address, :password, :password_confirmation)
+    end
 end
