@@ -11,13 +11,13 @@ arrangements = Arrangement.create([
     { 
       title: 'Summer day', 
       description: 'bring light to your home with this joyful arrangement, with yellow roses, orange lilies and some greens.', 
-      price: 35, height: 'tall'
+      price: 35, height: 'Tall'
         }, 
     {
         title: 'Think Pink', 
         description: 'love pink? us too! enjoy this bubbly bouquet with pink buttercups, pink roses and pink daisies. fun!',
         price: 30, 
-        height: 'medium'
+        height: 'Medium (average)'
         }
     ])
 

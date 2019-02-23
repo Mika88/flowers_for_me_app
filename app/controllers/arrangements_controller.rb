@@ -12,7 +12,7 @@ class ArrangementsController < ApplicationController
     end
 
     def create
-        @arrangement = Arrangement.new(user_params)
+        @arrangement = Arrangement.new(arrangement_params)
         if @arrangement.save
             redirect_to arrangement_path(@arrangement)
         else
@@ -26,7 +26,7 @@ class ArrangementsController < ApplicationController
 
     def update
         @arrangement = Arrangement.find(params[:id])
-        if @arrangement.update(user_params)
+        if @arrangement.update(arrangement_params)
             redirect_to arrangement_path(@arrangement)
         else
             render :edit
@@ -37,4 +37,11 @@ class ArrangementsController < ApplicationController
         @arrangement.find(params[:id]).destroy
         redirect_to arrangements_path
     end
+
+    private
+
+    def arrangement_params
+        params.require(:arrangement).permit(:title, :description, :height, :price)
+    end
 end
+
