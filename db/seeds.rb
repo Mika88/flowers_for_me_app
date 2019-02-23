@@ -6,7 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-arrangements = Arrangement.create([{ title: 'Summer day', description: 'bring light to your home with this joyful arrangement, with yellow roses, orange lilies and some greens.', price: 35}, {title: 'Think Pink', description: 'love pink? us too! enjoy this bubbly bouquet with pink buttercups, pink roses and pink daisies. fun!', price: 30}])
+
+arrangements = Arrangement.create([
+    { 
+      title: 'Summer day', 
+      description: 'bring light to your home with this joyful arrangement, with yellow roses, orange lilies and some greens.', 
+      price: 35, height: 'tall'
+        }, 
+    {
+        title: 'Think Pink', 
+        description: 'love pink? us too! enjoy this bubbly bouquet with pink buttercups, pink roses and pink daisies. fun!',
+        price: 30, 
+        height: 'medium'
+        }
+    ])
 
 users = User.create(name: 'Sarah', email: 'sarah@hotmail.com', password: "sarah", address: '214 Washington street, apt.2, Hoboken NJ.')
 
