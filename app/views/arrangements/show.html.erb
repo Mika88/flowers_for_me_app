@@ -3,3 +3,5 @@
 <p></h4><%= @arrangement.description %></p>
 <h4>Arrangement Height: <%= @arrangement.height %></h4>
 <h4>Price: $<%= @arrangement.price %></h4>
+<p><%= image_tag @arrangement.image_url.to_s if @arrangement.image? %></p>
+

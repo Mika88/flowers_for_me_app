@@ -1,6 +1,14 @@
 <h2>Create a New Arrangement</h2>
 
-<%= form_for @arrangement do |f| %>
+<%= form_for @arrangement, :html => {:multipart => true} do |f| %>
+    <% if @arrangement.errors.any? %>
+        <h2><%= pluralize(@arrangement.errors.count, "error") %> prohibited this arrangement from being saved:</h2>
+        <ul>
+            <% @arrangement.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
     <%= f.label :Title %>
     <%= f.text_field :title %>
     <br></br>
@@ -12,6 +20,11 @@
     <br></br>
     <%= f.label "Price in $" %>
     <%= f.text_field :price %>
+    <br></br>
+    <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    </div>
     <br></br>
     <%= f.submit %>
 <% end %>
