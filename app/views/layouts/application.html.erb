@@ -9,7 +9,30 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav class="navbar navbar-light bg-light">
+  <div style="padding-left: 10px;">
+    <%= image_tag("logo.jpg", width: "70px")%>
+    <span class="navbar-brand">Flowers for Me</span>
+  </div>
+  <form class="form-inline">
+    <a class="btn btn-outline-primary" href="/login" role="button">
+    Login
+    </a>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-success" href="/signup" role="button">
+      Sign Up
+      </a>
+    </div>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-success" href="/home" role="button">
+      Home
+      </a>
+    </div>
+  </form>
+</nav>
   <body>
-    <%= yield %>
+    <div style="padding-left: 10px;">
+      <%= yield %>
+    </div>
   </body>
 </html>
