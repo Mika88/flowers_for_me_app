@@ -15,16 +15,10 @@
     <span class="navbar-brand">Flowers for Me</span>
   </div>
   <form class="form-inline">
-    <a class="btn btn-outline-primary" href="/login" role="button">
-    Login
-    </a>
+    <%= link_to "Home", root_path, class: "btn btn-outline-primary", role: "button" %>
     <div style="padding-left: 10px;">
+      <%= link_to "Login", '/login', class: "btn btn-outline-success", role: "button" %> 
       <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-success", role: "button" %>
-    </div>
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-success" href="/home" role="button">
-      Home
-      </a>
     </div>
   </form>
 </nav>

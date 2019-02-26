@@ -1,0 +1,10 @@
+<h2>Log in to Your Account</h2><br>
+<%= form_tag(sessions_path) do %>
+    <%= label_tag :email, 'Enter Your Email' %>
+    <%= text_field_tag :email %>
+    <br></br>
+    <%= label_tag :password, 'Enter Your Password' %>
+    <%= password_field_tag :password %>
+    <br></br>
+    <%= submit_tag 'Log In' %>
+<% end %>
