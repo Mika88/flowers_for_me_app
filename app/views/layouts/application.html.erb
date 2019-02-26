@@ -12,13 +12,21 @@
   <nav class="navbar navbar-light bg-light">
   <div style="padding-left: 10px;">
     <%= image_tag("logo.jpg", width: "70px")%>
-    <span class="navbar-brand">Flowers for Me</span>
+    <p class="navbar-brand">Flowers for Me</p>
+    <% if current_user %>
+      <p>Welcome, <%= current_user.name %>!</p>
+    <% end %>
   </div>
   <form class="form-inline">
-    <%= link_to "Home", root_path, class: "btn btn-outline-primary", role: "button" %>
     <div style="padding-left: 10px;">
-      <%= link_to "Login", '/login', class: "btn btn-outline-success", role: "button" %> 
-      <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-success", role: "button" %>
+      <%= link_to "Home", root_path, class: "btn btn-outline-primary", role: "button" %>
+        <% if current_user.nil? %>
+          <%= link_to "Login", '/login', class: "btn btn-outline-success", role: "button" %> 
+          <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-success", role: "button" %>
+        <% else %>
+          <%= link_to "Log Out", '/logout', class: "btn btn-outline-success", role: "button" %>
+          <%= link_to "My Profile", user_path(current_user), class: "btn btn-outline-success", role: "button" %>
+        <% end %>
     </div>
   </form>
 </nav>
