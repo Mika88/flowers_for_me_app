@@ -8,30 +8,29 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <nav class="navbar navbar-light bg-light">
-  <div style="padding-left: 10px;">
-    <%= image_tag("logo.jpg", width: "70px")%>
-    <p class="navbar-brand">Flowers for Me</p>
-    <% if current_user %>
-      <p>Welcome, <%= current_user.name %>!</p>
-    <% end %>
-  </div>
-  <form class="form-inline">
-    <div style="padding-left: 10px;">
-      <%= link_to "Home", root_path, class: "btn btn-outline-primary", role: "button" %>
-        <% if !logged_in? %>
-          <%= link_to "Login", '/login', class: "btn btn-outline-success", role: "button" %> 
-          <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-success", role: "button" %>
-        <% else %>
-          <%= link_to "Log Out", '/logout', class: "btn btn-outline-success", role: "button" %>
-          <%= link_to "My Profile", user_path(current_user), class: "btn btn-outline-success", role: "button" %>
-        <% end %>
-    </div>
-  </form>
-</nav>
   <body>
-    <div style="padding-left: 10px;">
+    <nav class="navbar navbar-light bg-light">
+      <div style="padding-left: 10px;">
+        <%= image_tag("logo.jpg", width: "70px")%>
+        <p class="navbar-brand">Flowers for Me</p>
+        <% if current_user %>
+          <p>Welcome, <%= current_user.name %>!</p>
+        <% end %>
+      </div>
+      <form class="form-inline">
+        <div style="padding-right: 10px;">
+          <%= link_to "Home", root_path, class: "btn btn-outline-primary", role: "button" %>
+            <% if !logged_in? %>
+              <%= link_to "Login", '/login', class: "btn btn-outline-success", role: "button" %> 
+              <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-success", role: "button" %>
+            <% else %>
+              <%= link_to "Log Out", '/logout', class: "btn btn-outline-success", role: "button" %>
+              <%= link_to "My Profile", user_path(current_user), class: "btn btn-outline-success", role: "button" %>
+            <% end %>
+        </div>
+      </form>
+    </nav>
+    <div class="container">
       <%= yield %>
     </div>
   </body>
