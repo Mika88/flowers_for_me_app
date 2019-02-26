@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     def new
-      @users = User.all
+      
     end
 
     def create
@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            redirect_to root_path
+            render :new
+            flash[:error] = "Invalid Password or/and Email"
         end
     end
 
