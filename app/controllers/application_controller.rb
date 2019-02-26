@@ -14,13 +14,13 @@ class ApplicationController < ActionController::Base
 
     def require_login
       if !logged_in?
-        redirect_to login_path, :flash => { :error => "must be logged in" }
+        redirect_to login_path, :flash => { :error => "You must be logged in" }
       end
     end
 
     def admin?
         if !current_user.admin
-            redirect_to root_path, :flash => { :error => "you are not authorized for this action" }
+            redirect_to root_path, :flash => { :error => "You are not authorized for this action" }
         end
     end
     

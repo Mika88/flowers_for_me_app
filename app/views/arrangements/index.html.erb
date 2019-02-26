@@ -1,3 +1,7 @@
+<% if flash[:error] %>
+  <div class="error"><%= flash[:error] %></div>
+<% end %>
+
 <h2>Choose Your Favorite Arrangement</h2>
 <ul>
 <% @arrangements.each do |f| %>
