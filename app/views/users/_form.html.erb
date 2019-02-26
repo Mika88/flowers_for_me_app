@@ -1,5 +1,15 @@
 <%= form_for @user do |f| %>
-    <%= display_errors f %>
+    <% if @user.errors.any? %>
+      <div class=text-danger>
+        <p><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</p>
+        <ul>
+            <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <br></br>
     <%= f.label :Name %>
     <%= f.text_field :name %>
     <br></br>

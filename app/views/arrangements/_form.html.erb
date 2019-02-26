@@ -1,8 +1,8 @@
 <%= form_for @arrangement, :html => {:multipart => true} do |f| %>
-    <% if f.errors.any? %>
-        <h2><%= pluralize(f.errors.count, "error") %> prohibited this arrangement from being saved:</h2>
+    <% if @arrangement.errors.any? %>
+        <h2><%= pluralize(@arrangement.errors.count, "error") %> prohibited this arrangement from being saved:</h2>
         <ul>
-            <% f.errors.full_messages.each do |message| %>
+            <% @arrangement.errors.full_messages.each do |message| %>
             <li><%= message %></li>
             <% end %>
         </ul>
