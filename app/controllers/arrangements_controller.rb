@@ -2,7 +2,6 @@ class ArrangementsController < ApplicationController
     before_action :admin?
     skip_before_action :admin?, only: [:index, :show]
     before_action :require_login
-   
 
     def index
         @arrangements = Arrangement.all
