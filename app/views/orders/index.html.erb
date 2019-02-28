@@ -1,5 +1,5 @@
 <h2>Your Orders</h2>
 <% @orders.each_with_index do |order, i| %>
-    <p><%= link_to "#{i + 1}. #{order.arrangement.title}", order_path(order) %> - <%= order.arrangement.price %></p>
+    <p><%= i + 1%>.<%= link_to "#{order.arrangement.title}", user_order_path(order.user_id, order) %> - <%= order.arrangement.price %></p>
 <% end %>    
 
