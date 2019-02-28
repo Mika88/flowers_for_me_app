@@ -9,7 +9,7 @@ class ArrangementsController < ApplicationController
 
     def show
         @arrangement = Arrangement.find(params[:id])
-        sessions[:arrangement_id] = params[:id]
+        session[:arrangement_id] = params[:id]
     end
 
     def new

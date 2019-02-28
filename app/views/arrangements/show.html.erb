@@ -5,4 +5,5 @@
     <h4>Arrangement Height: <%= @arrangement.height %></h4>
     <h4>Price: $<%= @arrangement.price %></h4>
     <p><%= image_tag @arrangement.image_url.to_s, size: "300x300" if @arrangement.image? %></p>
+    <%= button_to "Order Arrangement", new_user_order_path(current_user), method: :get %>
 </div>

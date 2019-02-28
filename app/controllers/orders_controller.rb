@@ -8,8 +8,8 @@ class OrdersController < ApplicationController
     end
 
     def new
-        raise params.sessions[:arrangement_id]
         @order = Order.new
+        @arrangement = Arrangement.find(session[:arrangement_id])
     end
     
     def create

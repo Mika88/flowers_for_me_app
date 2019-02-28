@@ -1,0 +1,35 @@
+<div class="form">
+    <%= form_for @order do |f| %>
+        <% if @order.errors.any? %>
+        <div class=text-danger>
+            <p><%= pluralize(@order.errors.count, "error") %> prohibited this user from being saved:</p>
+            <ul>
+                <% @order.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        <% end %>
+        </div>
+        <br></br>
+        <h2><%= @arrangement.title %>
+        <%= f.label :Name %>
+        <%= f.text_field :name %>
+        <br></br>
+        <%= f.label :Email %>
+        <%= f.text_field :email %>
+        <br></br>
+        <%= f.label :Address %><br>
+        <%= f.text_area :address, size: "30x8"  %>
+        <br></br>
+        <%= f.label 'Check box if you are an admin' %><br>
+        <%= f.check_box :admin %><br> 
+        <br></br>
+        <%= f.label "Create a Password" %>
+        <%= f.password_field :password %>
+        <br></br>
+        <%= f.label "Confirm Password" %>
+        <%= f.password_field :password_confirmation %>
+        <br></br>
+        <%= f.submit %>
+    <% end %>
+</div>
