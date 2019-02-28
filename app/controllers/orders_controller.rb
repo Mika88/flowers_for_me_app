@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
     def index
-        raise params.inspect
+        @orders = User.find(params[:user_id]).orders
+        @arrangement = order.arrangement
     end
 
     def show
+
     end
 
     def new
