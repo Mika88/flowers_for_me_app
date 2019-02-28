@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :admin?
 
     def home
     end
@@ -20,7 +20,9 @@ class ApplicationController < ActionController::Base
 
     def admin?
       if logged_in?
-        if !current_user.admin
+        if current_user.admin
+            true
+        else
           redirect_to root_path, :flash => { :error => "You are not authorized for this action" }
         end
       end

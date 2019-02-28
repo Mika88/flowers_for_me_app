@@ -9,3 +9,7 @@
   <p><%= image_tag f.image_url.to_s, size: "100x100" if f.image? %></p>
 <% end %>
 </ul>
+
+<%if admin? %>
+  <%= button_to "Add a new arrangement", new_arrangement_path, method: :get %>
+<% end %>
