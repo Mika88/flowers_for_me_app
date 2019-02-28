@@ -10,6 +10,6 @@
 <% end %>
 </ul>
 
-<%if admin? %>
+<%if current_user.admin %>
   <%= button_to "Add a new arrangement", new_arrangement_path, method: :get %>
 <% end %>

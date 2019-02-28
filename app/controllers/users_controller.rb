@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :require_login, :current_user?, only: [:show, :edit, :update, :destroy]
+    before_action :require_login, :current_user_authorized?, only: [:show, :edit, :update, :destroy]
     
     def show
         @user = User.find(params[:id])
