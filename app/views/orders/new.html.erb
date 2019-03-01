@@ -10,8 +10,10 @@
 <% end %>
 <div class="form">
     <h2>Create an Order</h2>
-    <h4>Arrangement: <%= @arrangement.title %></h4>
     <%= form_for [current_user, @order] do |f| %>
+        <h4>Arrangement: <%= @arrangement.title %></h4>
+        <strong>Arrangement Price: $<%= @arrangement.price %></strong>
+        <br></br>
         <%= f.hidden_field :user_id %>
         <%= f.hidden_field :arrangement_id %>
         <%= f.label :Quantity %>
