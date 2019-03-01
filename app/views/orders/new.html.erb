@@ -1,6 +1,4 @@
-<div class="form">
-    <%= form_for @order do |f| %>
-        <% if @order.errors.any? %>
+<% if @order.errors.any? %>
         <div class=text-danger>
             <p><%= pluralize(@order.errors.count, "error") %> prohibited this user from being saved:</p>
             <ul>
@@ -8,27 +6,20 @@
                 <li><%= message %></li>
                 <% end %>
             </ul>
-        <% end %>
         </div>
+<% end %>
+<div class="form">
+    <h2>Create an Order</h2>
+    <%= form_for @order, :url => user_order_path(current_user, @order) do |f| %>
+        <h4>Arrangement: <%= @arrangement.title %></h4>
+        <%= f.label :Quantity %>
+        <%= f.select :quantity, options_for_select(1..10), include_blank: true %>  
         <br></br>
-        <h2><%= @arrangement.title %>
-        <%= f.label :Name %>
-        <%= f.text_field :name %>
+        <%= f.label "What day would you like to recieve your arrangement?" %>
+        <%= f.select :delivery_day, [['Monday'], ['Tuesday'], ['Wednesday'], ['Thursday'], ['Friday']], include_blank: true %>
         <br></br>
-        <%= f.label :Email %>
-        <%= f.text_field :email %>
-        <br></br>
-        <%= f.label :Address %><br>
-        <%= f.text_area :address, size: "30x8"  %>
-        <br></br>
-        <%= f.label 'Check box if you are an admin' %><br>
-        <%= f.check_box :admin %><br> 
-        <br></br>
-        <%= f.label "Create a Password" %>
-        <%= f.password_field :password %>
-        <br></br>
-        <%= f.label "Confirm Password" %>
-        <%= f.password_field :password_confirmation %>
+        <%= f.label "Select the subscription type:" %><br>
+        <%= f.select :frequency, [["Once a week"], ["Once every two weeks"], ["Once every three weeks"], ["Once a month"]] %>
         <br></br>
         <%= f.submit %>
     <% end %>
