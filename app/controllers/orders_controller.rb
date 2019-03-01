@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     end
 
     def new
-        @order = Order.new
+        @order = Order.new(user_id: params[:user_id], arrangement_id: session[:arrangement_id])
         @arrangement = Arrangement.find(session[:arrangement_id])
     end
     
