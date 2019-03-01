@@ -10,8 +10,8 @@
 <% end %>
 <div class="form">
     <h2>Create an Order</h2>
-    <%= form_for @order, :url => user_order_path(current_user, @order) do |f| %>
-        <h4>Arrangement: <%= @arrangement.title %></h4>
+    <h4>Arrangement: <%= @arrangement.title %></h4>
+    <%= form_for [current_user, @order] do |f| %>
         <%= f.label :Quantity %>
         <%= f.select :quantity, options_for_select(1..10), include_blank: true %>  
         <br></br>

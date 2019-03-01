@@ -13,6 +13,14 @@ class OrdersController < ApplicationController
     end
     
     def create
+        @arrangement = Arrangement.find(session[:arrangement_id])
+        @order = Order.new(order_params)
+        if @order.save
+
+            redirect_to user_order_path(current_user, @order)
+        else
+            render :new
+        end
     end
 
     def edit
@@ -22,5 +30,11 @@ class OrdersController < ApplicationController
     end
 
     def destroy
+    end
+
+    private
+
+    def order_params
+        params.require(:order).permit(:quantity, :delivery_day, :frequency, :user_id, :arrangement_id)
     end
 end
