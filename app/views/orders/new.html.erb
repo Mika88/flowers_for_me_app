@@ -18,7 +18,7 @@
         <%= f.select :quantity, options_for_select(1..10), include_blank: true %>  
         <br></br>
         <%= f.label "Select delivery date:" %>
-        <%= f.date_select :delivery_day, prompt: { month: 'Select month', day: 'Select day' }, start_year: Date.current.year %>
+        <%= f.date_select :delivery_day, default: 3.days.from_now, start_year: Date.current.year %>
         <br></br>
         <%= f.submit %>
     <% end %>
