@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_24_141451) do
+ActiveRecord::Schema.define(version: 2019_03_01_181205) do
 
   create_table "arrangements", force: :cascade do |t|
     t.string "title"
@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2019_02_24_141451) do
     t.integer "arrangement_id"
     t.integer "quantity", default: 1
     t.string "delivery_day"
-    t.string "frequency", default: "Once a week"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active", default: false
   end
 
   create_table "users", force: :cascade do |t|
