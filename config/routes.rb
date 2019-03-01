@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'application#home'
   resources :arrangements
   resources :users do
-    resources :orders, only: [:new, :index, :show]
+    resources :orders, only: [:new, :index, :show, :create]
   end
   get '/login', :to => 'sessions#new'
   post '/sessions', :to => 'sessions#create'
