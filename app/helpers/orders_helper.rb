@@ -7,5 +7,4 @@ module OrdersHelper
        delivery_hash = eval(@order.delivery_day)
        "#{delivery_hash[2]}/#{delivery_hash[3]}/#{delivery_hash[1]}"
     end
-
 end
