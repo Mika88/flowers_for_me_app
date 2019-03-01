@@ -17,7 +17,7 @@
         <%= f.hidden_field :user_id %>
         <%= f.hidden_field :arrangement_id %>
         <%= f.label :Quantity %>
-        <%= f.select :quantity, options_for_select(1..10), include_blank: true %>  
+        <%= f.select :quantity, options_for_select(1..10) %>  
         <br></br>
         <%= f.label "Select delivery date:" %>
         <%= f.date_select :delivery_day, default: 3.days.from_now, start_year: Date.current.year %>
