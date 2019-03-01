@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+    before_action :require_login, :user?
+
     def index
         @orders = User.find(params[:user_id]).orders
     end
@@ -30,5 +32,13 @@ class OrdersController < ApplicationController
 
     def order_params
         params.require(:order).permit(:quantity, :delivery_day, :frequency, :user_id, :arrangement_id)
+    end
+
+    def user?
+        if logged_in?
+            if session[:user_id] != params[:user_id]
+                redirect_to root_path, :flash => { :error => "You are not authorized for this action" }
+            end 
+        end
     end
 end
