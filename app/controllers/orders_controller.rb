@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:quantity, :delivery_day, :frequency, :user_id, :arrangement_id)
+        params.require(:order).permit(:quantity, :delivery_day, :frequency, :user_id, :arrangement_id, :active)
     end
 
     def user?
