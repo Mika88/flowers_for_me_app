@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
         @arrangement = Arrangement.find(session[:arrangement_id])
         @order = Order.new(order_params)
         if @order.save
-
             redirect_to user_order_path(current_user, @order)
         else
             render :new
