@@ -5,7 +5,7 @@
                 <% @order.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
                 <% end %>
-            </ul>
+            </ul>user
         </div>
 <% end %>
 <div class="form">
@@ -17,11 +17,8 @@
         <%= f.label :Quantity %>
         <%= f.select :quantity, options_for_select(1..10), include_blank: true %>  
         <br></br>
-        <%= f.label "What day would you like to recieve your arrangement?" %>
-        <%= f.select :delivery_day, [['Monday'], ['Tuesday'], ['Wednesday'], ['Thursday'], ['Friday']], include_blank: true %>
-        <br></br>
-        <%= f.label "Select the subscription type:" %><br>
-        <%= f.select :frequency, [["Once a week"], ["Once every two weeks"], ["Once every three weeks"], ["Once a month"]] %>
+        <%= f.label "Select delivery date:" %>
+        <%= f.date_select :delivery_day, prompt: { month: 'Select month', day: 'Select day' }, start_year: Date.current.year %>
         <br></br>
         <%= f.submit %>
     <% end %>
