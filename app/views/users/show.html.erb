@@ -2,5 +2,8 @@
 <h4>Email: <%= @user.email %></h4>
 <h4>Address: <%= @user.address %></h4>
 
+<strong><%= link_to "View Order History", user_orders_path(@user) %></strong>
+<br></br>
 <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
 <%= button_to "Delete Profile", @user, method: :delete, data: { confirm: "Really?" } %>
+
