@@ -23,4 +23,4 @@ arrangements = Arrangement.create([
 
 users = User.create(name: 'Sarah', email: 'sarah@hotmail.com', password: "sarah", address: '214 Washington street, apt.2, Hoboken NJ.')
 
-Order.create(user_id: 1, arrangement_id: 1, delivery_day: "Monday")
+Order.create(user_id: 1, arrangement_id: 1, delivery_day: "{1 => 2019, 2 => 4, 3 => 4}")
