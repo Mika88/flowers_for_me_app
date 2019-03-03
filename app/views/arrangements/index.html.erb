@@ -14,6 +14,9 @@
 <ul>
 <% @arrangements.each do |f| %>
   <li><%= link_to f.title, arrangement_path(f) %> - $<%= f.price %></li><br>
+  <% if Arrangement.popular == f %>
+    <strong class=text-danger>Most popular arrangement</strong>
+  <% end %>
   <p><%= image_tag f.image_url.to_s, size: "100x100" if f.image? %></p>
 <% end %>
 </ul>
