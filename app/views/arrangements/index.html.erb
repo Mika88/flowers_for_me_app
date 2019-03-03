@@ -1,8 +1,16 @@
 <strong class=text-danger><%= flash[:error] %></strong>
 
 <h2>Choose Your Favorite Arrangement</h2>
-<ul>
 
+<div>
+  <strong>Filter arrangements:</strong>
+  <%= form_tag(arrangements_path, method: "get") do %>
+    <%= select_tag "height", options_for_select(["Tall", "Medium (average)", "Short"]), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
+<ul>
 <% @arrangements.each do |f| %>
   <li><%= link_to f.title, arrangement_path(f) %> - $<%= f.price %></li><br>
   <p><%= image_tag f.image_url.to_s, size: "100x100" if f.image? %></p>

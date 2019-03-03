@@ -4,7 +4,11 @@ class ArrangementsController < ApplicationController
     before_action :require_login
 
     def index
-        @arrangements = Arrangement.all
+        if !params[:height].blank?
+          @arrangements = Arrangement.by_height(params[:height])
+        else
+          @arrangements = Arrangement.all
+        end
     end
 
     def show
