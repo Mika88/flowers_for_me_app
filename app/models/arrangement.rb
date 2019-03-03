@@ -21,7 +21,7 @@ class Arrangement < ApplicationRecord
       where(height: arrangement_height)
     end
     
-    def self.popular
+    def self.best_seller
        self.all.max{|a,b| a.orders.count <=> b.orders.count }
     end
 end
