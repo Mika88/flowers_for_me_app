@@ -2,6 +2,7 @@
 
 <h2>Choose Your Favorite Arrangement</h2>
 <ul>
+
 <% @arrangements.each do |f| %>
   <li><%= link_to f.title, arrangement_path(f) %> - $<%= f.price %></li><br>
   <p><%= image_tag f.image_url.to_s, size: "100x100" if f.image? %></p>
