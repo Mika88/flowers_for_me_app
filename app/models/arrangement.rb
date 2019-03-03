@@ -9,8 +9,12 @@ class Arrangement < ApplicationRecord
 
     mount_uploader :image, ImageUploader
 
-    def self.by_price(arrangement_price)
-      where(price: arrangement_price)
+    def self.price_asc
+      self.order(:price)
+    end
+    
+    def self.price_desc
+        self.order(price: :desc)
     end
 
     def self.by_height(arrangement_height)

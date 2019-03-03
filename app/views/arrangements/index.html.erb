@@ -3,7 +3,7 @@
 <h2>Choose Your Favorite Arrangement</h2>
 
 <div>
-  <strong>Filter arrangements:</strong>
+  <strong>Filter arrangements by height:</strong>
   <%= form_tag(arrangements_path, method: "get") do %>
     <%= select_tag "height", options_for_select(["Tall", "Medium (average)", "Short"]), include_blank: true %>
     <%= submit_tag "Filter" %>
