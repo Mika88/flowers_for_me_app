@@ -16,8 +16,12 @@ class Arrangement < ApplicationRecord
     def self.price_desc
       self.order(price: :desc)
     end
-
+    
     def self.by_height(arrangement_height)
       where(height: arrangement_height)
+    end
+    
+    def self.popular
+       self.all.max{|a,b| a.orders.count <=> b.orders.count }
     end
 end
