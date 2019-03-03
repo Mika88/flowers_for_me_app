@@ -6,6 +6,12 @@ class ArrangementsController < ApplicationController
     def index
         if !params[:height].blank?
           @arrangements = Arrangement.by_height(params[:height])
+        elsif !params[:price].blank?
+            if params[:price] == "Ascending order"
+              @arrangements = Arrangement.price_asc
+            else
+              @arrangements = Arrangement.price_desc
+            end
         else
           @arrangements = Arrangement.all
         end

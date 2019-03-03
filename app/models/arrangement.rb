@@ -14,7 +14,7 @@ class Arrangement < ApplicationRecord
     end
     
     def self.price_desc
-        self.order(price: :desc)
+      self.order(price: :desc)
     end
 
     def self.by_height(arrangement_height)

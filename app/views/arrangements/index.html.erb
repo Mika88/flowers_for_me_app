@@ -3,9 +3,10 @@
 <h2>Choose Your Favorite Arrangement</h2>
 
 <div>
-  <strong>Filter arrangements by height:</strong>
+  <strong>Filter arrangements by:</strong>
   <%= form_tag(arrangements_path, method: "get") do %>
-    <%= select_tag "height", options_for_select(["Tall", "Medium (average)", "Short"]), include_blank: true %>
+    <%= select_tag "height", options_for_select(["Tall", "Medium (average)", "Short"]), prompt: "Height" %>
+    <%= select_tag "price", options_for_select(["Ascending order", "Descending order"]), prompt: "Price"  %>
     <%= submit_tag "Filter" %>
   <% end %>
 </div>
