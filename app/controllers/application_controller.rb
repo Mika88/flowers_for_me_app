@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
     def current_user_authorized?
         if logged_in?
-            if session[:user_id] != params[:id]
+            if session[:user_id].to_s != params[:id]
               redirect_to root_path, :flash => { :error => "You are not authorized for this action" }
             end
         end
