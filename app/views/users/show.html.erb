@@ -10,8 +10,12 @@
 <% else %>
     <h3><%= @user.name %></h3>
     <h4>Email: <%= @user.email %></h4>
-    <h4>Address: <%= @user.address %></h4>
-
+    <% if !@user.address.blank? %>
+      <h4>Address: <%= @user.address %></h4>
+    <% else %>
+      <strong class=text-danger><%= flash.now[:notice] = "Please update your address" %></strong>
+    <% end %>
+    <br></br>
     <strong><%= link_to "View Order History", user_orders_path(@user) %></strong>
     <br></br>
     <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>

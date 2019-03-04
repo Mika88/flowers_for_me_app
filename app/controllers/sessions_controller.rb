@@ -10,13 +10,14 @@ class SessionsController < ApplicationController
             redirect_to arrangements_path
         else
 
-        @user = User.find_by(:email => params[:email])
-        if @user && @user.authenticate(params[:password]) 
-            session[:user_id] = @user.id
-            redirect_to user_path(@user)
-        else
-            flash[:error] = "Invalid Password and/or Email"
-            render :new
+            @user = User.find_by(:email => params[:email])
+            if @user && @user.authenticate(params[:password]) 
+                session[:user_id] = @user.id
+                redirect_to user_path(@user)
+            else
+                flash[:error] = "Invalid Password and/or Email"
+                render :new
+            end
         end
     end
 
