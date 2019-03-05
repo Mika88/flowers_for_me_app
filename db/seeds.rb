@@ -10,17 +10,77 @@
 arrangements = Arrangement.create([
     { 
       title: 'Summer day', 
-      description: 'bring light to your home with this joyful arrangement, with yellow roses, orange lilies and some greens.', 
-      price: 35, height: 'Tall'
+      description: 'bring light to your home with this joyful arrangement, containig sunflowers, yellow roses and white hydrengea.', 
+      price: 40, 
+      height: 'Tall',
+      image: 'images/summer_day.jpg'
         }, 
     {
         title: 'Think Pink', 
-        description: 'love pink? us too! enjoy this bubbly bouquet with pink buttercups, pink roses and pink daisies. fun!',
+        description: 'love pink? us too! enjoy this bubbly bouquet with pink buttercups, pink roses and pink tulips. fun!',
         price: 30, 
-        height: 'Medium (average)'
+        height: 'Short',
+        image: 'images/thinkpink.jpg'
+        },
+    {
+        title: 'Love is in the air', 
+        description: 'Feel romantic? We have the perfect bouquet for you! A delicate arrangement of unique white roses with red edges',
+        price: 35, 
+        height: 'Medium (average)',
+        image: 'images/love2.jpg'
+        },
+    {
+        title: 'Farmers market', 
+        description: 'Bring farmers market to your home with this lovely and colorful daisy assortment basket.',
+        price: 37, 
+        height: 'Medium (average)',
+        image: 'images/daisy_basket.jpg'
+        },
+    {
+        title: 'Pure elegance', 
+        description: 'Impress your friends with this elegant and delicate arrangement, containing white lilies, white roses and white tulips.  ',
+        price: 30, 
+        height: 'Short',
+        image: 'images/pure_elegance.jpg'
         }
     ])
 
-users = User.create(name: 'Sarah', email: 'sarah@hotmail.com', password: "sarah", address: '214 Washington street, apt.2, Hoboken NJ.')
+users =  User.create([
+    {
+       name: 'Sarah', 
+       email: 'sarah@hotmail.com', 
+       password: "sarah", address: '214 Washington street, apt.2, Hoboken NJ.'
+       },
 
-Order.create(user_id: 1, arrangement_id: 1, delivery_day: "{1 => 2019, 2 => 4, 3 => 4}")
+    {
+       name: 'Bob', 
+       email: 'bob@hotmail.com', 
+       password: "bob", 
+       address: '456 River road, San Diego, CA.'
+       },
+    {
+       name: 'Mika', 
+       email: 'mika@gmail.com', 
+       password: "mikmik",
+       address: "87 Park Av. Maui, Hawaii",
+       admin: true
+       }, 
+       
+])
+orders = Order.create([
+    {
+        user_id: 1, 
+        arrangement_id: 1, 
+        delivery_day: "{1 => 2019, 2 => 4, 3 => 4}"
+        },
+    {
+        user_id: 2, 
+        arrangement_id: 3, 
+        delivery_day: "{1 => 2019, 2 => 3, 3 => 4}"
+        },
+    {
+        user_id: 1, 
+        arrangement_id: 3, 
+        delivery_day: "{1 => 2019, 2 => 4, 3 => 4}"
+        }
+])
