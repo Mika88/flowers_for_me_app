@@ -58,7 +58,7 @@ class ArrangementsController < ApplicationController
     private
 
     def arrangement_params
-      params.require(:arrangement).permit(:title, :description, :height, :price, :image, :errors)
+      params.require(:arrangement).permit(:title, :description, :height, :price, :image)
     end
 end
 
