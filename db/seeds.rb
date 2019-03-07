@@ -13,7 +13,7 @@ arrangements = Arrangement.create([
       description: 'bring light to your home with this joyful arrangement, containig sunflowers, yellow roses and white hydrengea.', 
       price: 40, 
       height: 'Tall',
-      image: 'summer_day.jpg'
+      image: File.open(Rails.root + "public/uploads/arrangement/image/1/summer_day.jpg")
         }, 
     {
         title: 'Think Pink', 
