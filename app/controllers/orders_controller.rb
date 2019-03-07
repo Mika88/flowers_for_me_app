@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    before_action :require_login, :user?
+    before_action :require_login, :current_user_authorized?
 
     def index
         @orders = User.find(params[:user_id]).orders
