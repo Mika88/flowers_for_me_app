@@ -21,10 +21,7 @@
       <form class="form-inline">
         <div style="padding-right: 10px;">
           <%= link_to "Home", root_path, class: "btn btn-outline-primary", role: "button" %>
-            <% if !logged_in? %>
-              <%= link_to "Login", '/login', class: "btn btn-outline-success", role: "button" %> 
-              <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-success", role: "button" %>
-            <% else %>
+            <% if logged_in? %>
               <%= link_to "Arrangements", arrangements_path, class: "btn btn-outline-success", role: "button" %>
               <%= link_to "My Profile", user_path(current_user), class: "btn btn-outline-success", role: "button" %>
             <% end %>

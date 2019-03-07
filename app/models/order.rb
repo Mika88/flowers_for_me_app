@@ -5,6 +5,6 @@ class Order < ApplicationRecord
     validates :delivery_day, presence: true
     
     def total_price
-        self.arrangement.price * self.quantity
+      self.arrangement.price * self.quantity
     end
 end
