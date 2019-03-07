@@ -1,13 +1,15 @@
 <div class="form">
     <%= form_for @arrangement, :html => {:multipart => true} do |f| %>
         <% if @arrangement.errors.any? %>
-            <h2><%= pluralize(@arrangement.errors.count, "error") %> prohibited this arrangement from being saved:</h2>
+        <div class=text-danger>
+            <strong><%= pluralize(@arrangement.errors.count, "error") %> prohibited this arrangement from being saved:</strong>
             <ul>
                 <% @arrangement.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
                 <% end %>
             </ul>
-        <% end %>
+        </div>
+    <% end %>
         <%= f.label :Title %>
         <%= f.text_field :title %>
         <br></br>
