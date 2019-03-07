@@ -13,28 +13,28 @@ arrangements = Arrangement.create([
       description: 'bring light to your home with this joyful arrangement, containig sunflowers, yellow roses and white hydrengea.', 
       price: 40, 
       height: 'Tall',
-      image: '/uploads/arrangement/image/1/summer_day.jpg'
+      image: 'summer_day.jpg'
         }, 
     {
         title: 'Think Pink', 
         description: 'love pink? us too! enjoy this bubbly bouquet with pink buttercups, pink roses and pink tulips. fun!',
         price: 30, 
         height: 'Short',
-        image: '/uploads/arrangement/image/2/thinkpink.jpg'
+        image: 'thinkpink.jpg'
         },
     {   
         title: 'Farmers market', 
         description: 'Bring farmers market to your home with this lovely and colorful daisy assortment basket.',
         price: 37, 
         height: 'Medium (average)',
-        image: '/uploads/arrangement/image/3/daisy_basket.jpg'
+        image: 'daisy_basket.jpg'
         },
     {
         title: 'Love is in the air', 
         description: 'Feel romantic? We have the perfect bouquet for you! A delicate arrangement of unique white roses with red edges',
         price: 35, 
         height: 'Medium (average)',
-        image: '/uploads/arrangement/image/4/love2.jpg'
+        image: 'love2.jpg'
         },
         
     {
@@ -42,7 +42,7 @@ arrangements = Arrangement.create([
         description: 'Impress your friends with this elegant and delicate arrangement, containing white lilies, white roses and white tulips.  ',
         price: 30, 
         height: 'Short',
-        image: '/uploads/arrangement/image/5/pure_elegance.jpg'
+        image: 'pure_elegance.jpg'
         }
     ])
 
