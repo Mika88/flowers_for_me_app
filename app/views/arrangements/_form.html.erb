@@ -1,15 +1,6 @@
 <div class="form">
     <%= form_for @arrangement, :html => {:multipart => true} do |f| %>
-        <% if @arrangement.errors.any? %>
-        <div class=text-danger>
-            <strong><%= pluralize(@arrangement.errors.count, "error") %> prohibited this arrangement from being saved:</strong>
-            <ul>
-                <% @arrangement.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
+        <%= render partial: "errors", locals: {object: @arrangement} %>
         <%= f.label :Title %>
         <%= f.text_field :title %>
         <br></br>

@@ -1,15 +1,6 @@
 <div class="form">
     <%= form_for @user do |f| %>
-        <% if @user.errors.any? %>
-        <div class=text-danger>
-            <p><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</p>
-            <ul>
-                <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-                <% end %>
-            </ul>
-        <% end %>
-        </div>
+        <%= render partial: "errors", locals: {object: @user} %>
         <br></br>
         <%= f.label :Name %>
         <%= f.text_field :name %>

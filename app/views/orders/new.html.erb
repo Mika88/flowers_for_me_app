@@ -1,16 +1,7 @@
-<% if @order.errors.any? %>
-        <div class=text-danger>
-            <p><%= pluralize(@order.errors.count, "error") %> prohibited this user from being saved:</p>
-            <ul>
-                <% @order.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-                <% end %>
-            </ul>user
-        </div>
-<% end %>
 <div class="form">
     <h2>Create an Order</h2>
     <%= form_for [current_user, @order] do |f| %>
+        <%= render partial: "errors", locals: {object: @order} %>
         <h4>Arrangement: <%= @arrangement.title %></h4>
         <strong>Arrangement Price: $<%= @arrangement.price %></strong>
         <br></br>
