@@ -1,13 +1,13 @@
 <h2>Choose Your Favorite Arrangement</h2>
 
-<div>
-  <strong>Filter arrangements by:</strong>
-  <%= form_tag(arrangements_path, method: "get") do %>
-    <%= select_tag "height", options_for_select(["Tall", "Medium (average)", "Short"]), prompt: "Height" %>
-    <%= select_tag "price", options_for_select(["Low to high", "High to low"]), prompt: "Price"  %>
+  <span><%= form_tag(arrangements_path, method: "get") do %></span>
+    <%= select_tag :height, options_for_select(["Tall", "Medium (average)", "Short"], selected: params[:height]), prompt: "Height" %>
     <%= submit_tag "Filter" %>
   <% end %>
-</div>
+  <span><%= form_tag(arrangements_path, method: "get") do %></span>
+    <%= select_tag :price, options_for_select(["Low to high", "High to low"], selected: params[:price]), prompt: "Price" %>
+    <%= submit_tag "Sort" %>
+  <% end %>
 
 <ul>
 <% @arrangements.each do |f| %>
