@@ -1,3 +1,4 @@
+<strong class=text-danger><%= flash[:notice] %></strong>
 
 <% if @user.admin %>
     <h3><%= @user.name %> (admin)</h3> 
@@ -7,7 +8,7 @@
     <br></br>
     <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
     <%= button_to "Delete Profile", @user, method: :delete, data: { confirm: "Really?" } %>
-    
+
 <% else %>
 
     <h3><%= @user.name %></h3>

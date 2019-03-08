@@ -6,7 +6,12 @@ class UsersController < ApplicationController
     end
 
     def new
-      @user = User.new
+      if logged_in?
+        flash[:notice] = "You are already logged in"
+        redirect_to user_path(current_user)
+      else
+        @user = User.new
+      end
     end
 
     def create

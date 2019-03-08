@@ -1,10 +1,12 @@
 <strong class=text-danger><%= flash[:error] %></strong>
 
-<h1>Welcome to the Flowers For Me App</h1>
+<h1>Welcome to the Flowers For Me App!</h1>
 <h3>If you love flowers and want to treat yourself</h3>
 <h3>with a beautiful arrangement this is the perfect app for you!</h3>
-<br></br>
 
-<p>To enjoy our service please <%= sign_up_flow %> or <%= login_flow %></p> 
-<p>OR</p>
-<p><%= link_to('Log in with Github!', '/auth/github') %></p>
+<% if !logged_in? %>
+  <p>To enjoy our service please <%= link_to "Sign up", new_user_path %> or <%= link_to "Log in", "/login" %></p> 
+  <p>OR</p>
+  <p><%= link_to('Log in with Github!', '/auth/github') %></p>
+<% end %>
+
