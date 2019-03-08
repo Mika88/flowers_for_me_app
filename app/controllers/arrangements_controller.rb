@@ -8,7 +8,7 @@ class ArrangementsController < ApplicationController
         @arrangements = Arrangement.by_height(params[:height])
       elsif !params[:price].blank?
 
-        if params[:price] == "Ascending order"
+        if params[:price] == "Low to high"
           @arrangements = Arrangement.price_asc
         else
           @arrangements = Arrangement.price_desc
