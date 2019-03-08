@@ -12,7 +12,7 @@ Once there sign up or log in with github, and enjoy the flowers!
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Mika88/share_recipes_sinatra_project.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Mika88/flowers_for_me_app.
 
 ## License
 
