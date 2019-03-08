@@ -7,6 +7,7 @@
     <p><%= image_tag @arrangement.image_url.to_s, size: "300x300" if @arrangement.image? %></p>
     <% if current_user.admin %>
       <%= button_to "Edit Arrangement", edit_arrangement_path(@arrangement), method: :get %>
+      <%= button_to "Delete Arrangement", @arrangement, method: :delete %>
     <% else %>
       <%= button_to "Order Arrangement", new_user_order_path(current_user), method: :get %>
     <% end %>

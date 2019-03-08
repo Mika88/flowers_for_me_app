@@ -51,7 +51,7 @@ class ArrangementsController < ApplicationController
     end
 
     def destroy
-      @arrangement.find(params[:id]).destroy
+      Arrangement.find(params[:id]).destroy
       redirect_to arrangements_path
     end
 
