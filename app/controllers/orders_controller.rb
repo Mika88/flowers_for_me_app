@@ -2,11 +2,13 @@ class OrdersController < ApplicationController
     before_action :require_login, :current_user_authorized?
 
     def index
-      @orders = User.find(params[:user_id]).orders
+      if params[:user_id]
+        @orders = User.find(params[:user_id]).orders
+      end
     end
 
     def show
-      @order = Order.find(params[:id])
+      @order = Order.find(params[:id]) 
     end
 
     def new
