@@ -9,6 +9,6 @@
       <%= button_to "Edit Arrangement", edit_arrangement_path(@arrangement), method: :get %>
       <%= button_to "Delete Arrangement", @arrangement, method: :delete %>
     <% else %>
-      <%= button_to "Order Arrangement", new_user_order_path(current_user), method: :get %>
+      <%= button_to "Order Arrangement", new_arrangement_order_path(@arrangement), method: :get %>
     <% end %>
 </div>

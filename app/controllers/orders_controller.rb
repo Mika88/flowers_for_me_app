@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
     def index
       if params[:user_id]
-        @orders = User.find(params[:user_id]).orders
+        @orders = Arrangement.find(params[:arrangement_id]).orders
       end
     end
 
