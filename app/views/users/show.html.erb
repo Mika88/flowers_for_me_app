@@ -23,9 +23,17 @@
     <% else %>
       <strong class=text-danger><%= flash.now[:notice] = "Please update your address" %></strong>
     <% end %>
-
     <br></br>
-    <strong><%= link_to "View Order History", user_orders_path(@user) %></strong>
+    <h4>My Orders (<%=@user.orders.length%>)</h4>
+    <ul>
+    <% @user.orders.each do |order| %>
+      <li>
+        <b>Order <%= order.id %></b><br>
+        <%= link_to "#{order.arrangement.title}", arrangement_path(order.arrangement) %><br>
+        <%= order.created_time %><br>
+      </li>
+    <% end %>
+    <ul>
     <br></br>
     <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
     <%= button_to "Delete Profile", @user, method: :delete %>

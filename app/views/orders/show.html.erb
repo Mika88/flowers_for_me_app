@@ -2,7 +2,7 @@
 <h4>Arrangement Name</h4> <p><%= @order.arrangement.title %></p>
 <h4>Quantity</h4> <p><%= @order.quantity %></p>
 <h4>Total Price</h4> <p>$<%= @order.total_price %></p>
-<h4>Order Created at</h4> <p><%= created_time %></p>
-<h4>Delivery Date</h4> <p><%= delivery_date %></p>
+<h4>Order Created at</h4> <p><%= @order.created_time %></p>
+<h4>Delivery Date</h4> <p><%= @order.delivery_date %></p>
 
 <%= link_to "View my orders", user_orders_path(current_user), class: "btn btn-outline-success", role: "button" %>
