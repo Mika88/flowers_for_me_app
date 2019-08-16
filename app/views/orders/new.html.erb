@@ -1,6 +1,6 @@
 <div class="form">
     <h2>Create an Order</h2>
-    <%= form_for [current_user, @order] do |f| %>
+    <%= form_for [@arrangement, @order] do |f| %>
         <%= render partial: "errors", locals: {object: @order} %>
         <h4>Arrangement: <%= @arrangement.title %></h4>
         <strong>Arrangement Price: $<%= @arrangement.price %></strong>

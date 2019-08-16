@@ -21,24 +21,15 @@ class ApplicationController < ActionController::Base
     end
 
     def admin_authorized?
-      if logged_in?
-        if !current_user.admin
-          redirect_to root_path, :flash => { :error => "You are not authorized for this action" }
-        end
+      if !current_user.admin
+        redirect_to root_path, :flash => { :error => "You are not authorized for this action" }
       end
     end
 
     def current_user_authorized?
-      if logged_in?
-        if params[:user_id]
-          if  session[:user_id].to_s != params[:user_id]
-            redirect_to root_path, :flash => { :error => "You are not authorized for this action" }
-          end
-        else
-          if session[:user_id].to_s != params[:id]
-            redirect_to root_path, :flash => { :error => "You are not authorized for this action" }
-          end
-        end
+      if current_user.id.to_s != params[:id]
+        redirect_to root_path, :flash => { :error => "You are not authorized for this action" }
       end
     end
 end
+

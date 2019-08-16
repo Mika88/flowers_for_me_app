@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    before_action :require_login, :current_user_authorized?
+    before_action :require_login
 
     def index
       if params[:user_id]
@@ -12,15 +12,15 @@ class OrdersController < ApplicationController
     end
 
     def new
-      @order = Order.new(user_id: params[:user_id], arrangement_id: session[:arrangement_id])
-      @arrangement = Arrangement.find(session[:arrangement_id])
+      @order = Order.new(user_id: session[:user_id], arrangement_id: params[:arrangement_id])
+      @arrangement = Arrangement.find(params[:arrangement_id])
     end
     
     def create
-      @arrangement = Arrangement.find(session[:arrangement_id])
+      @arrangement = Arrangement.find(params[:arrangement_id])
       @order = Order.new(order_params)
       if @order.save
-        redirect_to user_order_path(current_user, @order)
+        redirect_to arrangement_order_path(@arrangement, @order)
       else
         render :new
       end
