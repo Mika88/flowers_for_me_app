@@ -1,4 +1,11 @@
-<h2>Your Orders</h2>
-<% @orders.each_with_index do |order, i| %>
-    <p><%= i + 1%>.<%= link_to "#{order.arrangement.title}", arrangement_path(order.arrangement) %> - $<%= order.total_price %>- <%= link_to "view full order", user_order_path(current_user, order)%></p>
-<% end %>   
+<h2>Orders (<%= @orders.length %>)</h2>
+  <ul>
+  <% @orders.each do |order| %>
+    <li>
+        <b><%= link_to " Order #{order.id}", arrangement_order_path(order.arrangement, order) %></b><br>
+        <%= link_to "#{order.arrangement.title}", arrangement_path(order.arrangement) %><br>
+        <%= order.created_time %><br>
+    </li>
+  <% end %>
+ </ul>
+   

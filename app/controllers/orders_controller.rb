@@ -2,9 +2,7 @@ class OrdersController < ApplicationController
     before_action :require_login
 
     def index
-      if params[:user_id]
         @orders = Arrangement.find(params[:arrangement_id]).orders
-      end
     end
 
     def show

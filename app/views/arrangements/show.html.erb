@@ -8,7 +8,8 @@
     <% if current_user.admin %>
       <%= button_to "Edit Arrangement", edit_arrangement_path(@arrangement), method: :get %>
       <%= button_to "Delete Arrangement", @arrangement, method: :delete %>
-    <% else %>
+      <%= button_to "View Orders", arrangement_orders_path(@arrangement), method: :get %>
+    <% elsif %>
       <%= button_to "Order Arrangement", new_arrangement_order_path(@arrangement), method: :get %>
     <% end %>
 </div>
