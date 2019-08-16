@@ -10,8 +10,8 @@
         <%= f.label :Quantity %>
         <%= f.select :quantity, options_for_select(1..10) %>  
         <br></br>
-        <%= f.label "Select delivery date:" %>
-        <%= f.date_select :delivery_day, default: 3.days.from_now, start_year: Date.current.year %>
+        <%= f.label "Select delivery option:" %>
+        <%= f.select :delivery_day, options_for_select(["in 10 days - free", "in a week - $5", "in two days - $10"], selected: params[:delivery_day]) %>
         <br></br>
         <%= f.submit %>
     <% end %>
