@@ -9,24 +9,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
-      <div style="padding-left: 10px;">
-        <%= image_tag("logo.jpg", width: "70px")%>
-        <p class="navbar-brand">Flowers For Me</p>
+    <nav class="navbar navbar-light bg-warning">
+      <div class="form-inline">
+        <%= link_to "Home", root_path, class: "btn btn-outline-light", role: "button" %>
+        <% if logged_in? %>
+          <%= link_to "Arrangements", arrangements_path, class: "btn btn-outline-light", role: "button" %>
+          <%= link_to "My Profile", user_path(current_user), class: "btn btn-outline-light", role: "button" %>
+        <% end %>
+      </div>
+      <div class="text-light">
         <% if current_user %>
-          <span>Welcome, <%= current_user.name %>!</span>
+          <span><b>Welcome, <%= current_user.name %></b>!</span>
           <span><%= link_to "Log Out", '/logout'%></span>
         <% end %>
       </div>
-      <form class="form-inline">
-        <div style="padding-right: 10px;">
-          <%= link_to "Home", root_path, class: "btn btn-outline-primary", role: "button" %>
-          <% if logged_in? %>
-            <%= link_to "Arrangements", arrangements_path, class: "btn btn-outline-success", role: "button" %>
-            <%= link_to "My Profile", user_path(current_user), class: "btn btn-outline-success", role: "button" %>
-          <% end %>
-        </div>
-      </form>
     </nav>
     <div class="container">
       <%= yield %>
