@@ -34,7 +34,7 @@
     <ul>
     <% @user.orders.each do |order| %>
       <li>
-        <b>Order <%= order.id %></b><br>
+        <b><%= link_to " Order #{order.id}", arrangement_order_path(order.arrangement, order) %></b><br>
         <%= link_to "#{order.arrangement.title}", arrangement_path(order.arrangement) %><br>
         <%= order.created_time %><br>
       </li>
