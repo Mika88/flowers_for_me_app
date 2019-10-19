@@ -1,43 +1,33 @@
 <strong class=text-danger><%= flash[:notice] %></strong>
 
-<% if @user.admin %>
-    <h3><%= @user.name %> (admin)</h3> 
-    <h4>Email: <%= @user.email %></h4>
+  <h3><%= @user.admin ? @user.name + ' (admin)' : @user.name %></h3> 
+  <h4>Email: <%= @user.email %></h4>
 
+  <% if !@user.address.blank? %>
+    <h4>Address: <%= @user.address %></h4>
+  <% else %>
+    <strong class=text-danger><%= flash.now[:notice] = "Please update your address" %></strong>
+  <% end %>
+
+  <br></br>
+
+  <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
+  <%= button_to "Delete Profile", @user, method: :delete, data: { confirm: "Are you sure?" } %>
+  <hr>
+
+  <% if @user.admin %>
     <strong><%= link_to "Add a new Arrangement", new_arrangement_path %></strong>
     <br></br>
-    <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
-    <%= button_to "Delete Profile", @user, method: :delete, data: { confirm: "Really?" } %>
+  <%end%>
 
-<% else %>
+  <h4>My Orders (<%=@user.orders.length%>)</h4>
+  <ul>
+  <% @user.orders.each do |order| %>
+    <li>
+      <b><%= link_to " Order #{order.id}", arrangement_order_path(order.arrangement, order) %></b><br>
+      <%= link_to "#{order.arrangement.title}", arrangement_path(order.arrangement) %><br>
+      <%= order.created_time %><br>
+    </li>
+  <% end %>
+  <ul>
 
-    <h3><%= @user.name %></h3>
-    <h4>Email: <%= @user.email %></h4>
-
-    <% if @user.uid %>
-      <h4>UID: <%= @user.uid %></h4>
-    <% end %>
-
-    <% if !@user.address.blank? %>
-      <h4>Address: <%= @user.address %></h4>
-    <% else %>
-      <strong class=text-danger><%= flash.now[:notice] = "Please update your address" %></strong>
-    <% end %>
-
-    <br></br>
-
-    <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
-    <%= button_to "Delete Profile", @user, method: :delete, data: { confirm: "Are you sure?" } %>
-    <hr>
-    
-    <h4>My Orders (<%=@user.orders.length%>)</h4>
-    <ul>
-    <% @user.orders.each do |order| %>
-      <li>
-        <b><%= link_to " Order #{order.id}", arrangement_order_path(order.arrangement, order) %></b><br>
-        <%= link_to "#{order.arrangement.title}", arrangement_path(order.arrangement) %><br>
-        <%= order.created_time %><br>
-      </li>
-    <% end %>
-    <ul>
-<% end %>

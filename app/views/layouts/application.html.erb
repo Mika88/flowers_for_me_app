@@ -19,7 +19,7 @@
       </div>
       <div class="text-light">
         <% if current_user %>
-          <span><b>Welcome, <%= current_user.name %></b>!</span>
+          <span><b>Welcome, <%= current_user.admin ? current_user.name + '! (admin)' : current_user.name + '!'%></b></span>
           <span><%= link_to "Log Out", '/logout'%></span>
         <% end %>
       </div>
