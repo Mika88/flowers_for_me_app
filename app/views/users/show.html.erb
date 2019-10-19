@@ -27,7 +27,7 @@
     <br></br>
 
     <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
-    <%= button_to "Delete Profile", @user, method: :delete %>
+    <%= button_to "Delete Profile", @user, method: :delete, data: { confirm: "Are you sure?" } %>
     <hr>
     
     <h4>My Orders (<%=@user.orders.length%>)</h4>
