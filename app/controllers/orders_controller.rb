@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
       @arrangement = Arrangement.find(params[:arrangement_id])
       @order = Order.new(order_params)
       if @order.save
-        redirect_to arrangement_order_path(@arrangement, @order)
+        redirect_to arrangement_order_path(@arrangement, @order),  notice: 'Order was successfully created.'
       else
         render :new
       end
