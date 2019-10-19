@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
     before_action :require_login
 
     def index
-        @orders = Arrangement.find(params[:arrangement_id]).orders
+      @orders = Arrangement.find(params[:arrangement_id]).orders
     end
 
     def show
@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
       @arrangement = Arrangement.find(params[:arrangement_id])
       @order = Order.new(order_params)
       if @order.save
-        redirect_to arrangement_order_path(@arrangement, @order),  notice: 'Order was successfully created.'
+        redirect_to arrangement_order_path(@arrangement, @order)
       else
         render :new
       end
