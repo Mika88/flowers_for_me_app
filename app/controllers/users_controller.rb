@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
     before_action :require_login, :current_user_authorized?, only: [:show, :edit, :update, :destroy]
-    
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
+
     def show
-      @user = User.find(params[:id])
     end
 
     def new
@@ -25,11 +25,9 @@ class UsersController < ApplicationController
     end
 
     def edit
-      @user = User.find(params[:id])
     end
 
     def update
-      @user = User.find(params[:id])
       if @user.update(user_params)
         redirect_to user_path(@user), notice: 'User was successfully updated.'
       else
@@ -38,12 +36,16 @@ class UsersController < ApplicationController
     end
 
     def destroy
-      User.find(params[:id]).destroy
+      @user.destroy
       session.delete :user_id
       redirect_to root_path
     end
 
     private 
+
+    def set_user
+      @user = User.find(params[:id])
+    end
 
     def user_params
       params.require(:user).permit(:name, :email, :address, :password, :password_confirmation, :admin, :uid)

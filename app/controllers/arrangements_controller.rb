@@ -30,7 +30,7 @@ class ArrangementsController < ApplicationController
     def create
       @arrangement = Arrangement.new(arrangement_params)
       if @arrangement.save
-        redirect_to arrangement_path(@arrangement),  notice: 'Arrangement was successfully created.'
+        redirect_to arrangement_path(@arrangement), notice: 'Arrangement was successfully created.'
       else
         render :new
       end
