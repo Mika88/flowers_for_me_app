@@ -1,6 +1,6 @@
 <h2>Order Information</h2>
 <h4>Arrangement Name <b><%= link_to "#{@order.arrangement.title}", arrangement_path(@order.arrangement) %><br></b></h4>
-<h4>Order Created at <b><%= @order.created_time %></b></h4> 
+<h4>Order Created at <b><%= created_time @order %></b></h4> 
 <h4>Delivery Date <b><%= @order.delivery_date %></b></h4> 
 <h4>Quantity <b><%= @order.quantity %></b></h4> 
 <h4>Total Price <b>$<%= @order.total_price %></b></h4> 

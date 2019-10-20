@@ -16,9 +16,7 @@ class Order < ApplicationRecord
       end 
     end
 
-    def created_time
-      self.created_at.strftime("%b %e, %Y at %l:%M %p (UTC)")
-    end
+    
 
     def delivery_date
       case self.delivery_day

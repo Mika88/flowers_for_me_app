@@ -24,7 +24,7 @@
   <ol>
   <% @user.orders.each do |order| %>
     <li>
-      <b><%= link_to "#{order.arrangement.title}", arrangement_order_path(order.arrangement, order) %> - Created at <%= order.created_time %></b><br>
+      <b><%= link_to "#{order.arrangement.title}", arrangement_order_path(order.arrangement, order) %> - Created at <%= created_time order %></b><br>
     </li>
   <% end %>
   <ol>
